@@ -6,6 +6,7 @@
 package chess;
 
 import com.vzap.games.boards.ChessBoard;
+import com.vzap.games.pieces.Pawn;
 import com.vzap.games.pieces.Piece;
 import com.vzap.games.players.ChessPlayer;
 
@@ -62,6 +63,12 @@ public class Game {
             }
             
             Piece p = board.getPiece(row, col);
+            
+            //Only Pawn is not allowed to go backwards
+            if(p instanceof Pawn){
+                //TODO: prevent going backwards
+                System.out.println("Pawn is moved");
+            }
             if(board.getPiece(newRow, newCol) != null && board.getPiece(newRow, newCol).isWhite() == playerWhite){
                 //Can't eat own piece
                 System.out.println("Invalid move");
